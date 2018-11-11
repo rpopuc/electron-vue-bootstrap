@@ -56,9 +56,12 @@
 
 <script>
   const remote = require('electron').remote;
+  const Menu = remote.Menu;
+
   export default {
     name: 'App',
     mounted() {
+      this.initMenu();
       this.$nextTick().then(() => {
         this.$router.push({ path: `/` });
       });
@@ -66,7 +69,41 @@
     methods: {
       sair() {
         remote.getCurrentWindow().close();
-      }
+      },
+
+      initMenu() {
+        const menu = Menu.buildFromTemplate([
+          {
+            label: "Arquivo",
+            submenu: [
+              {
+                label: "Exportação",
+                accelerator: "CmdOrCtrl+E",
+                click: () => {
+                  this.$router.push({path: '/exportacao'})
+                }
+              },
+              { type: "separator" },
+              {
+                label: "Sobre",
+                accelerator: "CmdOrCtrl+A",
+                click: () => {
+                  this.$router.push({path: '/about'})
+                }
+              },
+              { type: "separator" },
+              {
+                label: "Sair",
+                accelerator: "CmdOrCtrl+Q",
+                click: () => {
+                  this.sair();
+                }
+              }
+            ]
+          }
+        ]);
+        Menu.setApplicationMenu(menu);
+      },
     }
   }
 </script>
