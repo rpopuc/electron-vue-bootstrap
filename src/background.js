@@ -11,11 +11,26 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 // be closed automatically when the JavaScript object is garbage collected.
 let win
 
+var path = require('path')
+
 // Standard scheme must be registered before the app is ready
 protocol.registerStandardSchemes(['app'], { secure: true })
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 800, height: 600 })
+  win = new BrowserWindow({
+    title: "Electron Vue Bootstrap",
+    titleBarStyle: 'hidden',
+    width: 1281,
+    height: 800,
+    minWidth: 1281,
+    minHeight: 800,
+    backgroundColor: '#312450',
+    icon: path.join(__dirname, '/assets/icons/64x64.png')
+  })
+
+  win.on('page-title-updated', function(e) {
+    e.preventDefault()
+  });
 
   if (isDevelopment) {
     // Load the url of the dev server if in development mode
