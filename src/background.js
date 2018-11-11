@@ -24,7 +24,7 @@ function createWindow () {
     height: 800,
     minWidth: 1281,
     minHeight: 800,
-    backgroundColor: '#312450',
+    backgroundColor: '#f8fafc',
     icon: path.join(__dirname, '/assets/icons/64x64.png')
   })
 

@@ -1,5 +1,6 @@
 {
   "name": "electron-vue-simple",
+  "productName": "Electron Vue Bootstrap",
   "version": "0.1.0",
   "private": true,
   "scripts": {
