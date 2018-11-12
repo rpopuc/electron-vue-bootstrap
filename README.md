@@ -1,4 +1,6 @@
-# electron-vue-simple
+# Electron Vue Bootstrap
+
+An example of a Electron app with Vue and Bootstrap.
 
 ## Project setup
 ```
